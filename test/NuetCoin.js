@@ -76,7 +76,7 @@ contract('NuetCoin' , function(accounts) {
 		});
 	});
 
-	it('handles delegated token trasnfers', function() {
+	it('handles delegated token transfers', function() {
 		return NuetCoin.deployed().then(function(instance){
 			tokenInstance = instance;
 			fromAccount = accounts[2];
@@ -86,10 +86,40 @@ contract('NuetCoin' , function(accounts) {
 			return tokenInstance.transfer(fromAccount, 100, { from: accounts[0]});
 		}).then(function(receipt){
 			// Approve spendingAccount to spend 10 from fromAccount
-			
-
+			return tokenInstance.approve(spendingAccount, 10, {from: fromAccount});
+		}).then(function(receipt) {
+			// try transferring something larger than the sender's balance
+			return tokenInstance.transferFrom(fromAccount, toAccount, 999, {from: spendingAccount});
+		}).then(assert.fail).catch(function(error){
+			assert(error.message.indexOf('revert') >= 0, 'Cannot transfer the specified amount');
+			// try something larger than the approved amount
+			return tokenInstance.transferFrom(fromAccount, toAccount, 20, {from: spendingAccount});
+		}).then(assert.fail).catch(function(error){
+			assert(error.message.indexOf('revert') >= 0, 'Cannot transfer value larger than the approved amount');
+			// we are not actually creating a transaction and for that we used CALL()
+			// Calling does not change the state of the blockchain
+			return tokenInstance.transferFrom.call(fromAccount, toAccount, 10, {from: spendingAccount});
+		}).then(function(success){
+			assert.equal(success,true);
+			// This time we will be creating transactions in order to call EVENTS
+			return tokenInstance.transferFrom(fromAccount, toAccount, 10, {from: spendingAccount});
+		}).then(function(receipt){
+			assert.equal(receipt.logs.length, 1, 'trigger one event');
+			assert.equal(receipt.logs[0].event, 'Transfer', 'should be the transfer event');
+			assert.equal(receipt.logs[0].args._from, fromAccount, 'logs the account the tokens are authorized by');
+			assert.equal(receipt.logs[0].args._to, toAccount, 'logs the account the tokens are authorized to');
+			assert.equal(receipt.logs[0].args._value, 10, 'logs the transfer amount');
+			return tokenInstance.balanceOf(fromAccount);
+		}).then(function(balance){
+			assert.equal(balance.toNumber(), 90, 'deducts the amount from the sending account');
+			return tokenInstance.balanceOf(toAccount);
+		}).then(function(balance){
+			assert.equal(balance.toNumber(), 10, 'adds the amount to the receiving account');
+			return tokenInstance.allowance(fromAccount, spendingAccount);
+		}).then(function(allowance){
+			assert.equal(allowance.toNumber(), 0, 'deducts the given amount from the allowance mapping')
 		})
-	})
+	});
 
 });
 
