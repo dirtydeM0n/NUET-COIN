@@ -1,0 +1,181 @@
+{
+  "contractName": "NuetCoinSale",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820d2a97146841c2e7a6bae201945df73e0915f1579413d5f49aeddc55ed57edec70029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820d2a97146841c2e7a6bae201945df73e0915f1579413d5f49aeddc55ed57edec70029",
+  "sourceMap": "27:236:1:-;;;56:204;8:9:-1;5:2;;;30:1;27;20:12;5:2;56:204:1;27:236;;;;;;",
+  "deployedSourceMap": "27:236:1:-;;;;;",
+  "source": "pragma solidity ^0.4.2;\r\n\r\ncontract NuetCoinSale {\r\n    constructor() public {\r\n        // assign an admin which will have control over this tokensale contract\r\n        // interacting with the coin contract\r\n        // Token Price in exchange for ethers\r\n    }\r\n}",
+  "sourcePath": "D:\\nuetcoin\\contracts\\NuetCoinSale.sol",
+  "ast": {
+    "absolutePath": "/D/nuetcoin/contracts/NuetCoinSale.sol",
+    "exportedSymbols": {
+      "NuetCoinSale": [
+        192
+      ]
+    },
+    "id": 193,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 187,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 192,
+        "linearizedBaseContracts": [
+          192
+        ],
+        "name": "NuetCoinSale",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 190,
+              "nodeType": "Block",
+              "src": "77:183:1",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 191,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 188,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "67:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 189,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "77:0:1"
+            },
+            "scope": 192,
+            "src": "56:204:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 193,
+        "src": "27:236:1"
+      }
+    ],
+    "src": "0:263:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/D/nuetcoin/contracts/NuetCoinSale.sol",
+    "exportedSymbols": {
+      "NuetCoinSale": [
+        192
+      ]
+    },
+    "id": 193,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 187,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 192,
+        "linearizedBaseContracts": [
+          192
+        ],
+        "name": "NuetCoinSale",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 190,
+              "nodeType": "Block",
+              "src": "77:183:1",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 191,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 188,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "67:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 189,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "77:0:1"
+            },
+            "scope": 192,
+            "src": "56:204:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 193,
+        "src": "27:236:1"
+      }
+    ],
+    "src": "0:263:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x9ce6e40f796b35902d53c79ec4a83e07400d2fc9",
+      "transactionHash": "0x898b67f5384227fce4a263f718dd377560e0e06f0ef7999cc3200957154a90a8"
+    }
+  },
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-02-22T11:38:05.254Z"
+}
